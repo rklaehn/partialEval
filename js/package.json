@@ -3,7 +3,19 @@
   "version": "0.0.1",
   "description": "Experiments with partial evaluation",
   "main": "index.js",
+  "scripts": {
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build"
+  },
   "repository": "https://github.com/rklaehn/partialEval",
   "author": "Rüdiger Klaehn",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "benchmark": "^2.1.4",
+    "flow-bin": "^0.57.3",
+    "jest": "^21.2.1"
+  }
 }
