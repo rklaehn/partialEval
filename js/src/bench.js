@@ -1,7 +1,8 @@
 // @flow
+/* eslint-disable no-console */
 import benchmark from 'benchmark'
 import { interpreter, compiler } from './partial'
-import { fib, sumN, fibJs, sumNJs } from './programs'
+import { fib, fibJs } from './programs'
 
 export function bench() {
   const n = 10000

@@ -4,10 +4,12 @@
   "description": "Experiments with partial evaluation",
   "main": "app.js",
   "scripts": {
-    "build": "babel src/ -d lib/",
-    "main": "node lib/app.js",
+    "build": "babel src/ -d public/",
+    "main": "node public/app.js",
     "test": "yarn jest",
-    "prepublish": "yarn run build"
+    "prepublish": "yarn run build",
+    "lint": "eslint src/ --cache",
+    "lint:fix": "eslint src/ --cache --fix"
   },
   "repository": "https://github.com/rklaehn/partialEval",
   "author": "Rüdiger Klaehn",
@@ -17,7 +19,6 @@
     "babel-eslint": "^8.0.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
-    "benchmark": "^2.1.4",
     "eslint": "4.9.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "2.6.0",
@@ -30,5 +31,11 @@
     "flow-bin": "^0.57.3",
     "jest": "^21.2.1",
     "prettier": "1.7.4"
+  },
+  "dependencies": {
+    "benchmark": "^2.1.4"
+  },
+  "jest": {
+    "roots": ["src/"]
   }
 }
