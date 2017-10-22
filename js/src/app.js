@@ -1,5 +1,6 @@
 // @flow
 /* eslint-disable no-console */
-import { bench } from './bench'
+import { fibBench, sumNBench } from './bench'
 
-bench()
+fibBench()
+sumNBench()
