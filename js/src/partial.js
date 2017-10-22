@@ -96,10 +96,40 @@ const toBlock: (Op[]) => Op = ops => {
     case 0:
       return m => {} // noop
     case 1:
-      return m => ops[0](m)
+      return ops[0]
+    case 2: {
+      const op0 = ops[0]
+      const op1 = ops[1]
+      return m => {
+        op0(m)
+        op1(m)
+      }
+    }
+    case 3: {
+      const op0 = ops[0]
+      const op1 = ops[1]
+      const op2 = ops[2]
+      return m => {
+        op0(m)
+        op1(m)
+        op2(m)
+      }
+    }
+    case 4: {
+      const op0 = ops[0]
+      const op1 = ops[1]
+      const op2 = ops[2]
+      const op3 = ops[3]
+      return m => {
+        op0(m)
+        op1(m)
+        op2(m)
+        op3(m)
+      }
+    }
     default: {
       const [head, ...tail] = ops
-      const curr = ops[0]
+      const curr = head
       const rest = toBlock(tail)
       return m => {
         curr(m)
@@ -148,7 +178,7 @@ export const partialEval: Expr => Op = e => {
       }
     }
     case 'block':
-      return partialEvalBlock(e.es)
+      return partialEvalBlock2(e.es)
     /* istanbul ignore next */
     default:
       return unreachable(e.type)
