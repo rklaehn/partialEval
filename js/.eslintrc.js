@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     'jest/globals': true,
+    jest: true,
   },
   extends: [
     'airbnb',

@@ -1,4 +1,5 @@
 // @flow
 /* eslint-disable no-console */
+import { bench } from './bench'
 
-console.log('hello world')
+bench()
