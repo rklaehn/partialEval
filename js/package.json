@@ -36,6 +36,7 @@
     "benchmark": "^2.1.4"
   },
   "jest": {
-    "roots": ["src/"]
+    "roots": ["src/"],
+    "collectCoverage": true
   }
 }

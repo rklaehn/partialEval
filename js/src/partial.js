@@ -1,6 +1,8 @@
 // @flow
 /* eslint-disable no-param-reassign, no-use-before-define, no-console */
+
 const unreachable: empty => empty = () => {
+  /* istanbul ignore next */
   throw new Error('Unreachable code!')
 }
 
@@ -70,6 +72,7 @@ export function interpret(e: Expr, m: Registers): void {
     case 'loop':
       interpretLoop(e.haltIf0, e.p, m)
       break
+    /* istanbul ignore next */
     default:
       unreachable(e.type)
   }
@@ -121,6 +124,7 @@ export const partialEval: Expr => Op = e => {
     }
     case 'block':
       return partialEvalBlock(e.es)
+    /* istanbul ignore next */
     default:
       return unreachable(e.type)
   }
