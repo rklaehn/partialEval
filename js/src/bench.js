@@ -30,7 +30,6 @@ export function fibBench() {
     .run({ async: false })
 }
 
-
 export function sumNBench() {
   const n = 10000
   const name = `sumN${n}`

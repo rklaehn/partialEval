@@ -80,6 +80,7 @@ export function interpret(e: Expr, m: Registers): void {
 
 type Op = Registers => void
 
+// use an array of blocks
 const partialEvalBlock: (Expr[]) => Op = ps => {
   const compiled: Op[] = ps.map(partialEval)
   return m => {
@@ -87,6 +88,30 @@ const partialEvalBlock: (Expr[]) => Op = ps => {
       compiled[i](m)
     }
   }
+}
+
+// different representation of a block. Slower.
+const toBlock: (Op[]) => Op = ops => {
+  switch (ops.length) {
+    case 0:
+      return m => {} // noop
+    case 1:
+      return m => ops[0](m)
+    default: {
+      const [head, ...tail] = ops
+      const curr = ops[0]
+      const rest = toBlock(tail)
+      return m => {
+        curr(m)
+        rest(m)
+      }
+    }
+  }
+}
+
+const partialEvalBlock2: (Expr[]) => Op = ps => {
+  const compiled: Op[] = ps.map(partialEval)
+  return toBlock(compiled)
 }
 
 export const partialEval: Expr => Op = e => {
