@@ -1,0 +1,9 @@
+{
+  "name": "partialEval",
+  "version": "0.0.1",
+  "description": "Experiments with partial evaluation",
+  "main": "index.js",
+  "repository": "https://github.com/rklaehn/partialEval",
+  "author": "Rüdiger Klaehn",
+  "license": "MIT"
+}

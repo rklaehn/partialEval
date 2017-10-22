@@ -8,4 +8,29 @@ target/
 #Private tokens
 *.token
 
+*~# Node
+*/node_modules/
+*/coverage/
+
+# generated files
+*/build/
+*/public/
+
+# IntelliJ
+.idea
+*.iml
+.eslintcache
+
+# ignore
+*.orig
+**/.DS_Store
+
+*/.vscode/launch.json
+
 *~
+.*.swp
+
+# Files that should not be stored in Git
+web/public/dist
+web/.vscode/chrome
+web/dist
