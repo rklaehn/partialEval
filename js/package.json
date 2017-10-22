@@ -1,10 +1,12 @@
 {
-  "name": "partialEval",
+  "name": "partialeval",
   "version": "0.0.1",
   "description": "Experiments with partial evaluation",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "babel src/ -d lib/",
+    "main": "node lib/app.js",
+    "test": "yarn jest",
     "prepublish": "yarn run build"
   },
   "repository": "https://github.com/rklaehn/partialEval",
